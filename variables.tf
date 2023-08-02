@@ -24,4 +24,11 @@ variable "kubernetes_cluster_location" {
 variable "kubernetes_cluster_dns_prefix" {
   type = string
 }
-
+variable "vm-size" {
+  type    = string
+  default = "Standard_DS2_v2"
+}
+variable "node-count" {
+  type    = number
+  default = 2
+}

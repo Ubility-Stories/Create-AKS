@@ -11,18 +11,11 @@ resource "azurerm_kubernetes_cluster" "main" {
 
   default_node_pool {
     name       = "default"
-    node_count = 2
-    vm_size    = "Standard_D2_v2"
+    node_count = var.node-count
+    vm_size    = var.vm-size
   }
 
   identity {
     type = "SystemAssigned"
   }
-}
-
-resource "azurerm_kubernetes_cluster_node_pool" "main" {
-  kubernetes_cluster_id = azurerm_kubernetes_cluster.main.id
-  name                  = "${var.prefix}np2"
-  node_count            = 2
-  vm_size               = "Standard_DS2_v2"
 }
